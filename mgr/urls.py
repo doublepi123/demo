@@ -17,9 +17,9 @@ from django.contrib import admin
 from django.urls import path, include
 
 import mgr
+from mgr import views
 from mgr.views import liststudent
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('mgr/', include( 'mgr.urls')),
+    path('', liststudent),
 ]
