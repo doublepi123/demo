@@ -15,11 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.http import HttpResponse
 
 import mgr
 from mgr.views import liststudent
 
+
+def e404(request):
+    return HttpResponse('404 error')
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('mgr/', include( 'mgr.urls')),
+    path('mgr/', include('mgr.urls')),
+    path('', e404)
 ]
